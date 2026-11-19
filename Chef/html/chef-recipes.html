@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chef | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/chef.css">
+    </head>
+    <body id="recipes" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="chef-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Chef dashboard 
+                <a href="chef-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Chef navigation">
+                <a href="chef-recipes.html" class="active" aria-current="page">Recipes</a>
+                <a href="chef-tasks.html">Preparation tasks</a>
+                <a href="chef-requests.html">Stock requests</a>
+                <a href="chef-queue.html">Kitchen queue</a>
+            </nav>
+            <main>
+                <h2>Recipes</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search recipes" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add recipe</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Menu item</th>
+                                <th>Ingredients</th>
+                                <th>Serving size</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Recipe details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add recipe</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Recipe information</legend>
+                            <label for="menu">Menu item</label>
+                            <select id="menu" name="menu" required>
+                                <option value="">Select</option>
+                            </select>
+                            <label>Ingredients</label>
+                            <div id="ingredients-rows"></div>
+                            <button class="secondary" type="button" onclick="addItem()">Add item</button>
+                            <p id="item-total"></p>
+                            <label for="instructions">Instructions</label>
+                            <textarea id="instructions" name="instructions" required></textarea>
+                            <label for="servings">Serving size</label>
+                            <input type="number" id="servings" name="servings" min="1" step="1" required>
+                            <label for="status">Status</label>
+                            <select id="status" name="status" required>
+                                <option value="">Select</option>
+                                <option value="Active">Active</option>
+                                <option value="Retired">Retired</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/chef-data.js"></script>
+        <script src="../js/chef.js"></script>
+        <script src="../js/chef-profile.js"></script>
+    </body>
+</html>
