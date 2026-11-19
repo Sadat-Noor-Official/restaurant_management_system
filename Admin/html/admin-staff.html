@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="staff" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="admin-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Admin dashboard 
+                <a href="admin-profile.html">Profile</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Admin navigation">
+                <a href="admin-staff.html" class="active" aria-current="page">Staff accounts</a>
+                <a href="admin-menu.html">Menu items</a>
+                <a href="admin-coupons.html">Coupons</a>
+                <a href="admin-settings.html">Settings</a>
+            </nav>
+            <main>
+                <h2>Staff accounts</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search staff accounts" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add staff account</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Staff Account details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add staff account</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Staff Account information</legend>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                            <label for="role">Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Chef">Chef</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="status" name="status" required>
+                                <option value="">Select</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>

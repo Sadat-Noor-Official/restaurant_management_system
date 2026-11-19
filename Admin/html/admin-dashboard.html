@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="dashboard" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="admin-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Admin dashboard 
+                <a href="admin-profile.html">Profile</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Admin navigation">
+                <a href="admin-staff.html">Staff accounts</a>
+                <a href="admin-menu.html">Menu items</a>
+                <a href="admin-coupons.html">Coupons</a>
+                <a href="admin-settings.html">Settings</a>
+            </nav>
+            <main>
+                <h2>Overview</h2>
+                <div class="cards">
+                    <div class="card">
+                        <p>Staff</p>
+                        <strong id="count-staff">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Dishes</p>
+                        <strong id="count-menu">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Coupons</p>
+                        <strong id="count-coupons">0</strong>
+                    </div>
+                </div>
+                <h3>Admin workspace</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>

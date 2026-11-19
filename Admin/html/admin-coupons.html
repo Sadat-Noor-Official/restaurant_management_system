@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="coupons" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="admin-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Admin dashboard 
+                <a href="admin-profile.html">Profile</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Admin navigation">
+                <a href="admin-staff.html">Staff accounts</a>
+                <a href="admin-menu.html">Menu items</a>
+                <a href="admin-coupons.html" class="active" aria-current="page">Coupons</a>
+                <a href="admin-settings.html">Settings</a>
+            </nav>
+            <main>
+                <h2>Coupons</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search coupons" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add coupon</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Discount (%)</th>
+                                <th>Expiry date</th>
+                                <th>Usage limit</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Coupon details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add coupon</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Coupon information</legend>
+                            <label for="code">Code</label>
+                            <input type="text" id="code" name="code" required>
+                            <label for="discount">Discount (%)</label>
+                            <input type="number" id="discount" name="discount" min="1" step="1" max="100" required>
+                            <label for="expiry">Expiry date</label>
+                            <input type="date" id="expiry" name="expiry" required>
+                            <label for="limit">Usage limit</label>
+                            <input type="number" id="limit" name="limit" min="1" step="1" required>
+                            <label for="status">Status</label>
+                            <select id="status" name="status" required>
+                                <option value="">Select</option>
+                                <option value="Active">Active</option>
+                                <option value="Disabled">Disabled</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>
