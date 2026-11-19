@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manager | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/manager.css">
+    </head>
+    <body id="inventory" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="manager-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Manager dashboard 
+                <a href="manager-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Manager navigation">
+                <a href="manager-tables.html">Dining tables</a>
+                <a href="manager-inventory.html" class="active" aria-current="page">Inventory</a>
+                <a href="manager-suppliers.html">Suppliers</a>
+                <a href="manager-reports.html">Reports</a>
+            </nav>
+            <main>
+                <h2>Inventory</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search inventory" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add item</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                                <th>Reorder level</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Item details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add item</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Item information</legend>
+                            <label for="name">Item</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="unit">Unit</label>
+                            <select id="unit" name="unit" required>
+                                <option value="">Select</option>
+                                <option value="kg">kg</option>
+                                <option value="L">L</option>
+                                <option value="pcs">pcs</option>
+                            </select>
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" min="0" step="any" required>
+                            <label for="threshold">Reorder level</label>
+                            <input type="number" id="threshold" name="threshold" min="0" step="any" required>
+                            <label for="supplier">Supplier</label>
+                            <select id="supplier" name="supplier">
+                                <option value="">Select</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="status" name="status" required>
+                                <option value="">Select</option>
+                                <option value="Active">Active</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/manager-data.js"></script>
+        <script src="../js/manager.js"></script>
+        <script src="../js/manager-profile.js"></script>
+    </body>
+</html>
