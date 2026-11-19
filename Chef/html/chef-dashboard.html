@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chef | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/chef.css">
+    </head>
+    <body id="dashboard" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="chef-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Chef dashboard 
+                <a href="chef-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Chef navigation">
+                <a href="chef-recipes.html">Recipes</a>
+                <a href="chef-tasks.html">Preparation tasks</a>
+                <a href="chef-requests.html">Stock requests</a>
+                <a href="chef-queue.html">Kitchen queue</a>
+            </nav>
+            <main>
+                <h2>Overview</h2>
+                <div class="cards">
+                    <div class="card">
+                        <p>Open tasks</p>
+                        <strong id="count-open">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Recipes</p>
+                        <strong id="count-recipes">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Requests</p>
+                        <strong id="count-requests">0</strong>
+                    </div>
+                </div>
+                <h3>Chef workspace</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Menu item</th>
+                                <th>Progress</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+        <script src="../js/chef-data.js"></script>
+        <script src="../js/chef.js"></script>
+        <script src="../js/chef-profile.js"></script>
+    </body>
+</html>
