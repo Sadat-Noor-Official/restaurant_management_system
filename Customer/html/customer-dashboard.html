@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/customer.css">
+    </head>
+    <body id="dashboard" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="customer-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Customer dashboard 
+                <a href="customer-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Customer navigation">
+                <a href="customer-browse.html">Browse menu</a>
+                <a href="customer-reservations.html">Reservations</a>
+                <a href="customer-orders.html">My orders</a>
+                <a href="customer-reviews.html">My reviews</a>
+            </nav>
+            <main>
+                <h2>Overview</h2>
+                <div class="cards">
+                    <div class="card">
+                        <p>Reservations</p>
+                        <strong id="count-reservations">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Orders</p>
+                        <strong id="count-orders">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Reviews</p>
+                        <strong id="count-reviews">0</strong>
+                    </div>
+                </div>
+                <h3>Customer workspace</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booking</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+        <script src="../js/customer-data.js"></script>
+        <script src="../js/customer.js"></script>
+        <script src="../js/customer-profile.js"></script>
+    </body>
+</html>
