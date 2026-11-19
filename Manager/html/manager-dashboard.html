@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manager | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/manager.css">
+    </head>
+    <body id="dashboard" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="manager-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Manager dashboard 
+                <a href="manager-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Manager navigation">
+                <a href="manager-tables.html">Dining tables</a>
+                <a href="manager-inventory.html">Inventory</a>
+                <a href="manager-suppliers.html">Suppliers</a>
+                <a href="manager-reports.html">Reports</a>
+            </nav>
+            <main>
+                <h2>Overview</h2>
+                <div class="cards">
+                    <div class="card">
+                        <p>Tables</p>
+                        <strong id="count-tables">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Low stock</p>
+                        <strong id="count-low">0</strong>
+                    </div>
+                    <div class="card">
+                        <p>Suppliers</p>
+                        <strong id="count-suppliers">0</strong>
+                    </div>
+                </div>
+                <h3>Manager workspace</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Threshold</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+        <script src="../js/manager-data.js"></script>
+        <script src="../js/manager.js"></script>
+        <script src="../js/manager-profile.js"></script>
+    </body>
+</html>
