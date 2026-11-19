@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="index" class="auth-page" onload="initializePage()">
+        <header>
+            <h1>RESTAURANT MANAGEMENT SYSTEM</h1>
+        </header>
+        <main class="auth-box">
+            <h2>Login</h2>
+            <form onsubmit="return login()">
+                <label for="login-role">Role</label>
+                <select id="login-role" required>
+                    <option value="">Select role</option>
+                    <option>Admin</option>
+                    <option>Manager</option>
+                    <option>Chef</option>
+                    <option>Customer</option>
+                </select>
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" required>
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" required>
+                <button type="submit">Login</button>
+                <p><a href="register.html">Register as customer</a> · <a href="reset-password.html">Forgot password?</a></p>
+                <p id="auth-message" class="message" role="alert"></p>
+            </form>
+        </main>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="settings" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="admin-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Admin dashboard 
+                <a href="admin-profile.html">Profile</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Admin navigation">
+                <a href="admin-staff.html">Staff accounts</a>
+                <a href="admin-menu.html">Menu items</a>
+                <a href="admin-coupons.html">Coupons</a>
+                <a href="admin-settings.html" class="active" aria-current="page">Settings</a>
+            </nav>
+            <main>
+                <h2>Settings</h2>
+                <p>
+                    <a href="admin-profile.html">Account information and password</a>
+                </p>
+            </main>
+        </div>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>

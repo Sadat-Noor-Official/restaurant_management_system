@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/admin.css">
+    </head>
+    <body id="menu" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="admin-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Admin dashboard 
+                <a href="admin-profile.html">Profile</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Admin navigation">
+                <a href="admin-staff.html">Staff accounts</a>
+                <a href="admin-menu.html" class="active" aria-current="page">Menu items</a>
+                <a href="admin-coupons.html">Coupons</a>
+                <a href="admin-settings.html">Settings</a>
+            </nav>
+            <main>
+                <h2>Menu items</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search menu items" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add menu item</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price (BDT)</th>
+                                <th>Availability</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Menu Item details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add menu item</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Menu Item information</legend>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="category">Category</label>
+                            <input type="text" id="category" name="category" required>
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" required></textarea>
+                            <label for="price">Price (BDT)</label>
+                            <input type="number" id="price" name="price" min="0" step="any" required>
+                            <label for="availability">Availability</label>
+                            <select id="availability" name="availability" required>
+                                <option value="">Select</option>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/admin-data.js"></script>
+        <script src="../js/admin.js"></script>
+        <script src="../js/admin-profile.js"></script>
+        <script src="../js/admin-login.js"></script>
+    </body>
+</html>
