@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/customer.css">
+    </head>
+    <body id="reviews" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="customer-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Customer dashboard 
+                <a href="customer-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Customer navigation">
+                <a href="customer-browse.html">Browse menu</a>
+                <a href="customer-reservations.html">Reservations</a>
+                <a href="customer-orders.html">My orders</a>
+                <a href="customer-reviews.html" class="active" aria-current="page">My reviews</a>
+            </nav>
+            <main>
+                <h2>My reviews</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search my reviews" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add review</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Completed order</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Review details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add review</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Review information</legend>
+                            <label for="order">Completed order</label>
+                            <select id="order" name="order" required>
+                                <option value="">Select</option>
+                            </select>
+                            <label for="rating">Rating</label>
+                            <select id="rating" name="rating" required>
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" required></textarea>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/customer-data.js"></script>
+        <script src="../js/customer.js"></script>
+        <script src="../js/customer-profile.js"></script>
+    </body>
+</html>

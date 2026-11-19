@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer | Restaurant Management System</title>
+        <link rel="stylesheet" href="../css/customer.css">
+    </head>
+    <body id="reservations" onload="initializePage()">
+        <header>
+            <h1>
+                <a href="customer-dashboard.html">RESTAURANT MANAGEMENT SYSTEM</a>
+            </h1>
+            <div class="header-links">
+                Customer dashboard 
+                <a href="customer-profile.html">Profile</a>
+                <a href="../../Admin/html/index.html" onclick="logout()">Logout</a>
+            </div>
+        </header>
+        <div class="layout">
+            <nav aria-label="Customer navigation">
+                <a href="customer-browse.html">Browse menu</a>
+                <a href="customer-reservations.html" class="active" aria-current="page">Reservations</a>
+                <a href="customer-orders.html">My orders</a>
+                <a href="customer-reviews.html">My reviews</a>
+            </nav>
+            <main>
+                <h2>Reservations</h2>
+                <div class="toolbar">
+                    <input type="search" id="search" aria-label="Search records" placeholder="Search reservations" oninput="renderTable()">
+                    <button type="button" onclick="openForm()">Add reservation</button>
+                </div>
+                <p id="notice" class="message" role="status" hidden></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Table</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Party size</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records"></tbody>
+                    </table>
+                </div>
+                <section id="detail-panel" class="detail" hidden>
+                    <h3>Reservation details</h3>
+                    <div id="details"></div>
+                    <button type="button" class="secondary" onclick="closePanels()">Close</button>
+                </section>
+                <section id="form-panel" class="form-panel" hidden>
+                    <h3 id="form-heading">Add reservation</h3>
+                    <form id="record-form" onsubmit="return saveRecord()">
+                        <fieldset>
+                            <legend>Reservation information</legend>
+                            <label for="table">Table</label>
+                            <select id="table" name="table" required>
+                                <option value="">Select</option>
+                            </select>
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" required>
+                            <label for="time">Time</label>
+                            <input type="time" id="time" name="time" required>
+                            <label for="guests">Party size</label>
+                            <input type="number" id="guests" name="guests" min="1" step="1" required>
+                            <label for="status">Status</label>
+                            <select id="status" name="status" required>
+                                <option value="">Select</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </fieldset>
+                        <p id="form-error" class="message" role="alert"></p>
+                        <div class="form-actions">
+                            <button type="submit">Save</button>
+                            <button type="button" class="secondary" onclick="closePanels()">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script src="../js/customer-data.js"></script>
+        <script src="../js/customer.js"></script>
+        <script src="../js/customer-profile.js"></script>
+    </body>
+</html>
